@@ -1,4 +1,4 @@
-import { IsDate, IsNumber } from "class-validator";
+import { IsDate, IsNumber, IsString } from "class-validator";
 
 
 export class CreateRadniSatiDto {
@@ -8,7 +8,7 @@ export class CreateRadniSatiDto {
     @IsNumber()
         sifra: number  
 
-    @IsDate()
-    datum:Date
+    @IsString()
+    datum:string
     
 }

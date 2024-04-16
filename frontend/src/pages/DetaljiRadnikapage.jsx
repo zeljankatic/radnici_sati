@@ -3,32 +3,36 @@ import { useParams } from 'react-router-dom'
 import UnosPodatakaRadnika from '../services/unosPodatakRadnika'
 import {useFormik} from 'formik'
 import PrenosBazaRadniSati from '../services/prenosBazaRadniSati'
+import * as Yup from 'yup';
 
 function DetaljiRadnikapage() {
     const {id} = useParams()
+    const izradnik = false;
     const [radnik, setRadnik] = useState({})
     useEffect(()=>{
+      if(izradnik) return;
       UnosPodatakaRadnika.podaciRadnika(id)
-      .then(res => setRadnik(res.data))
+      .then(res => {setRadnik(res.data)})
       .catch(err => console.log(err))
-
+console.log('')
     },)
 
     const formik = useFormik ({
       initialValues:{
         radni_sati:'',
         datum:'',
-        sifra:`${id}`
+        //sifra:`${id}`
 },
-// validacija
-onSubmit:(values) =>{
+    //validacija   
+       
+onSubmit :(values) =>{
   console.log(values)
   PrenosBazaRadniSati.prenosBazaSati(values)
    .then(res => console.log(res.data))
    .catch(err => console.log(err))
   formik.resetForm()
 }
-})
+    })
    
     
   return (

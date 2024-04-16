@@ -12,5 +12,5 @@ export class RadniSati {
     sifra:number
 
     @Column()
-    datum:Date
+    datum:string
 }

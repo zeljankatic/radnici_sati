@@ -15,11 +15,11 @@ private satiRepository: Repository<RadniSati>,
   ){}
 
   create(createRadniSatiDto: CreateRadniSatiDto) {
-    return this.satiRepository.create(createRadniSatiDto)
+    return this.satiRepository.save(createRadniSatiDto)
   }
 
-  findAll() {
-    return `This action returns all radniSati`;
+  findAll(): Promise<RadniSati[]>{
+    return this.satiRepository.find()
   }
 
   findOne(id: number) {
