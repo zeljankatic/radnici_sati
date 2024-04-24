@@ -9,19 +9,19 @@ function DetaljiRadnikapage() {
     const {id} = useParams()
     const izradnik = false;
     const [radnik, setRadnik] = useState({})
-    useEffect(()=>{
-      if(izradnik) return;
-      UnosPodatakaRadnika.podaciRadnika(id)
-      .then(res => {setRadnik(res.data)})
-      .catch(err => console.log(err))
-console.log('')
-    },)
+//     useEffect(()=>{
+//       if(izradnik) return;
+//       UnosPodatakaRadnika.podaciRadnika(id)
+//       .then(res => {setRadnik(res.data)})
+//       .catch(err => console.log(err))
+// console.log('')
+//     },)
 
     const formik = useFormik ({
       initialValues:{
         radni_sati:'',
         datum:'',
-        //sifra:`${id}`
+        sifra:`${parseInt(id)}`
 },
     //validacija   
        

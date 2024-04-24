@@ -12,7 +12,7 @@ export class UsersController {
   }
 @Post()
 store(@Body() createUserDto:CreateUserDto){
-  
+
     return this.userService.create(createUserDto);
 }
 @Patch('/:userId')

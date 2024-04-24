@@ -6,7 +6,4 @@ export class CreateUserDto{
    
     @IsString()
     prezime : string
-
-    @IsEmail()
-    email:string
 }

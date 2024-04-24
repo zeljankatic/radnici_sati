@@ -5,8 +5,8 @@ export class CreateRadniSatiDto {
     @IsNumber()
     radni_sati:number
 
-    @IsNumber()
-        sifra: number  
+    @IsString()
+    sifra: string
 
     @IsString()
     datum:string

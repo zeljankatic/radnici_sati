@@ -9,7 +9,7 @@ export class RadniSati {
     radni_sati:number
 
     @Column()
-    sifra:number
+    sifra:string
 
     @Column()
     datum:string

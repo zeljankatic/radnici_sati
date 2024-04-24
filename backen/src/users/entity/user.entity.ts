@@ -6,23 +6,17 @@ export class User{
     id:number;
 
     @Column()
-
-    ime:string
-
-    @Column()
-    prezime:string
+    ime: string
 
     @Column()
+    prezime: string
+
+    @Column({ default: 0 })
     radni_sati: number
 
-    @Column()
+    @Column({ default: '1.1.1200.' })
     datum: string
 
-    @Column()
+    @Column({ default: '' })
     email:string
-
-
-
-
-
 }
