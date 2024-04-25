@@ -4,17 +4,9 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
-import { User } from './users/entity/user.entity';
-import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
-import { Auth } from './auth/entity/auth.entity';
 import { RadniSatiModule } from './radni_sati/radni_sati.module';
-import { RadniSati } from './radni_sati/entities/radni_sati.entity';
-
-
-
-
-
+import { RadniciModule } from './radnici/radnici.module';
 
 @Module({
   imports: [ConfigModule.forRoot(),
@@ -27,7 +19,7 @@ import { RadniSati } from './radni_sati/entities/radni_sati.entity';
       username: 'root',
       password: 'password',
       database: 'radnici_evidencija',
-      entities: [User,Auth,RadniSati],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
       inject: [ConfigService],
@@ -35,10 +27,9 @@ import { RadniSati } from './radni_sati/entities/radni_sati.entity';
     UsersModule,
     AuthModule,
     RadniSatiModule,
-   
-  
+    RadniciModule,
   ],
   controllers: [AppController],
-   providers: [AppService],
+  providers: [AppService],
 })
 export class AppModule {}

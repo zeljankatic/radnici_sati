@@ -7,26 +7,25 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class UsersService {
-  
     constructor(
-        @InjectRepository (User)
-        private userRepository: Repository<User>,){}
+        @InjectRepository(User)
+        private userRepository: Repository<User>
+    ){}
 
-    get(): Promise<User[]>{
+    get(): Promise<User[]> {
         return this.userRepository.find()
     }
-    create(createUserDto:CreateUserDto){
+
+    create(createUserDto:CreateUserDto) {
         return this.userRepository.save(createUserDto)
     }
 
-    update(updateUserDto:UpdateUserDto,
-         userId:number){
-return this.userRepository.update(userId,updateUserDto)
+    update(updateUserDto:UpdateUserDto, userId:number) {
+        return this.userRepository.update(userId,updateUserDto)
     }
 
     show(id:number){
         return this.userRepository.findOne({where :{id}});
-
     }
 
     findByEnail(email:string){
