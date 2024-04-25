@@ -25,7 +25,7 @@ import { RadniSati } from './radni_sati/entities/radni_sati.entity';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '',
+      password: 'password',
       database: 'radnici_evidencija',
       entities: [User,Auth,RadniSati],
       synchronize: true,

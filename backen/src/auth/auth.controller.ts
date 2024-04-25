@@ -12,5 +12,4 @@ export class AuthController {
     login(@Body() loginDto:any){
         return this.authService.validateAuth(loginDto.email , loginDto.password)
     }
-
 }

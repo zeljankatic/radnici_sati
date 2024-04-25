@@ -34,7 +34,7 @@ const navitems =[
 <ul className='flex gap-5'>
     {navitems.map((nav,index)=>{
         return <li className='' key={index}>
-            <NavLink className='bg-red-600 text-white px-[16px] py-[8px] rounded-xl' 
+            <NavLink className='bg-red-600 text-white px-[16px] py-[8px] rounded-xl'
             to={nav.path}>{nav.label}</NavLink>
             </li>
     })}

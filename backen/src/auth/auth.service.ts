@@ -14,7 +14,6 @@ export class AuthService {
 
         async validateAuth(email:string , password:string){
             const auth=await this.authRepository.findBy
-
         }
 
     findByEmail(email:string){
