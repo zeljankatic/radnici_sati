@@ -33,7 +33,7 @@ const router = createBrowserRouter([{
     element:<Logingpage/>
   },
   {
-    path:'/radnik/:id',
+    path:'/radnici/:id',
     element:<DetaljiRadnikapage/>
   }
 ]
@@ -43,7 +43,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router}/>
-    
   </React.StrictMode>
 );
 

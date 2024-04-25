@@ -2,15 +2,15 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class RadniSati {
-    @PrimaryGeneratedColumn()
-    id:number
+    @PrimaryGeneratedColumn('uuid')
+    id: string
 
     @Column()
-    radni_sati:number
+    radni_sati: number
 
     @Column()
-    sifra:string
+    sifra: string
 
     @Column()
-    datum:string
+    datum: string
 }
