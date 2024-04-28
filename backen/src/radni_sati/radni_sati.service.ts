@@ -11,10 +11,20 @@ export class RadniSatiService {
   constructor(
     @InjectRepository(RadniSati)
     private satiRepository: Repository<RadniSati>,
+    @InjectRepository(Radnici)
+    private radniciRepository: Repository<Radnici>,
   ) {}
 
-  create(radniSati: CreateRadniSatiDto) {
-    return this.satiRepository.save(radniSati);
+  async create(
+    radniSati: CreateRadniSatiDto,
+    radnik: Radnici,
+  ): Promise<RadniSati> {
+    const noviUnos = await this.satiRepository.save(radniSati);
+
+    radnik.radni_sati = [noviUnos, ...radnik.radni_sati];
+    await this.radniciRepository.save(radnik);
+
+    return noviUnos;
   }
 
   findAll(): Promise<RadniSati[]> {

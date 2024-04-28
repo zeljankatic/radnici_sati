@@ -9,8 +9,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 export class RadniciService {
   constructor(
     @InjectRepository(Radnici)
-    private radniciRepository: Repository<Radnici>
-  ){}
+    private radniciRepository: Repository<Radnici>,
+  ) {}
 
   create(createRadniciDto: CreateRadniciDto) {
     return this.radniciRepository.save(createRadniciDto);
@@ -21,7 +21,10 @@ export class RadniciService {
   }
 
   findOne(id: string) {
-    return this.radniciRepository.findOneBy({id});
+    return this.radniciRepository.findOne({
+      where: { id },
+      relations: ['radni_sati'],
+    });
   }
 
   update(id: string, updateRadniciDto: UpdateRadniciDto) {
