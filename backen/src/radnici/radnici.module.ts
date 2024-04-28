@@ -7,6 +7,7 @@ import { Radnici } from './entities/radnici.entity';
 @Module({
   controllers: [RadniciController],
   providers: [RadniciService],
-  imports:[TypeOrmModule.forFeature([Radnici])]
+  imports: [TypeOrmModule.forFeature([Radnici])],
+  exports: [RadniciService],
 })
 export class RadniciModule {}

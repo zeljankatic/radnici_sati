@@ -21,6 +21,6 @@ export class Radnici {
   @CreateDateColumn()
   datum: Date;
 
-  @OneToMany((type) => RadniSati, (radni_sati) => radni_sati.radnik)
+  @OneToMany(() => RadniSati, (radni_sati) => radni_sati.radnik)
   radni_sati: RadniSati[];
 }
