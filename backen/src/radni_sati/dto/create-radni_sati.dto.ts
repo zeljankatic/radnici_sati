@@ -1,13 +1,12 @@
-import { IsDate, IsNumber, IsString } from "class-validator";
-
+import { IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateRadniSatiDto {
-    @IsNumber()
-    radni_sati: number
+  @IsNumber()
+  radni_sati: number;
 
-    @IsString()
-    sifra: string
+  @IsString()
+  datum: string;
 
-    @IsString()
-    datum: string
+  @IsNotEmpty()
+  radnikId: string;
 }

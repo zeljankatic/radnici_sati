@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './pages/App';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Errorpage from './pages/Errorpage';
 import UnosRadnika from './pages/UnosRadnika';
 import Radnici from './pages/Radnici';
-import Homepages from './pages/Homepages';
 import Logingpage from './pages/Logingpage';
 import DetaljiRadnikapage from './pages/DetaljiRadnikapage';
+import Register from './pages/Register';
 
 const router = createBrowserRouter([{
   path:'/',
@@ -16,17 +16,12 @@ const router = createBrowserRouter([{
   errorElement:<Errorpage/>,
   children:[
     {
-     path:'/home',
-     element:<Homepages/>
-    },
-    {
     path:'/unos_radnika',
     element:<UnosRadnika/>
   },
   {
     path:'/radnici',
     element:<Radnici/>
-
   },
   {
     path:'/login',
@@ -35,6 +30,10 @@ const router = createBrowserRouter([{
   {
     path:'/radnici/:id',
     element:<DetaljiRadnikapage/>
+  },
+  {
+    path:'/register',
+    element:<Register/>
   }
 ]
 }])

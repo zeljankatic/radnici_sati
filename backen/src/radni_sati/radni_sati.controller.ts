@@ -1,15 +1,24 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { RadniSatiService } from './radni_sati.service';
 import { CreateRadniSatiDto } from './dto/create-radni_sati.dto';
 import { UpdateRadniSatiDto } from './dto/update-radni_sati.dto';
+import { RadniciService } from 'src/radnici/radnici.service';
 
 @Controller('radni_sati')
 export class RadniSatiController {
   constructor(private readonly radniSatiService: RadniSatiService) {}
 
   @Post()
-  create(@Body() createRadniSatiDto: CreateRadniSatiDto) {
-    return this.radniSatiService.create(createRadniSatiDto);
+  async create(@Body() radniSati: CreateRadniSatiDto) {
+    return this.radniSatiService.create(radniSati);
   }
 
   @Get()
@@ -23,7 +32,10 @@ export class RadniSatiController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRadniSatiDto: UpdateRadniSatiDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateRadniSatiDto: UpdateRadniSatiDto,
+  ) {
     return this.radniSatiService.update(+id, updateRadniSatiDto);
   }
 

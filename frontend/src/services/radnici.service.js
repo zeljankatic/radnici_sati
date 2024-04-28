@@ -1,19 +1,27 @@
 import axios from "axios";
 
 export default class RadniciService {
-    static getAll = async () => axios.get("http://localhost:4000/radnici");
+  constructor() {
+    this.baseUrl = "http://localhost:4000/radnici";
+  }
 
-    static getOne = async (id) => axios.get(`http://localhost:4000/radnici/${id}`);
+  async getAll() {
+    return await axios.get(this.baseUrl);
+  }
 
-    async create(radnik) {
-        return await axios.post(this.url, radnik);
-    }
+  async getOne(id) {
+    return await axios.get(`${this.baseUrl}/${id}`);
+  }
 
-    async update(id, radnik) {
-        return await axios.put(`${this.url}/${id}`, radnik);
-    }
+  async create(radnik) {
+    return await axios.post(this.baseUrl, radnik);
+  }
 
-    async delete(id) {
-        return await axios.delete(`${this.url}/${id}`);
-    }
+  async update(id, radnik) {
+    return await axios.put(`${this.baseUrl}/${id}`, radnik);
+  }
+
+  async delete(id) {
+    return await axios.delete(`${this.baseUrl}/${id}`);
+  }
 }

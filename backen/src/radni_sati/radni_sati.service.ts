@@ -4,22 +4,21 @@ import { UpdateRadniSatiDto } from './dto/update-radni_sati.dto';
 import { RadniSati } from './entities/radni_sati.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Radnici } from 'src/radnici/entities/radnici.entity';
 
 @Injectable()
 export class RadniSatiService {
-
   constructor(
-    @InjectRepository (RadniSati)
-private satiRepository: Repository<RadniSati>,
+    @InjectRepository(RadniSati)
+    private satiRepository: Repository<RadniSati>,
+  ) {}
 
-  ){}
-
-  create(createRadniSatiDto: CreateRadniSatiDto) {
-    return this.satiRepository.save(createRadniSatiDto)
+  create(radniSati: CreateRadniSatiDto) {
+    return this.satiRepository.save(radniSati);
   }
 
-  findAll(): Promise<RadniSati[]>{
-    return this.satiRepository.find()
+  findAll(): Promise<RadniSati[]> {
+    return this.satiRepository.find();
   }
 
   findOne(id: number) {

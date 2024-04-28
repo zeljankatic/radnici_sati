@@ -1,19 +1,26 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { RadniSati } from 'src/radni_sati/entities/radni_sati.entity';
 
 @Entity()
-export class Radnici{
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+export class Radnici {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @Column()
-    ime: string
+  @Column()
+  ime: string;
 
-    @Column()
-    prezime: string
+  @Column()
+  prezime: string;
 
-    @Column({ default: 0 })
-    radni_sati: number
+  @CreateDateColumn()
+  datum: Date;
 
-    @CreateDateColumn()
-    datum: Date
+  @OneToMany((type) => RadniSati, (radni_sati) => radni_sati.radnik)
+  radni_sati: RadniSati[];
 }
