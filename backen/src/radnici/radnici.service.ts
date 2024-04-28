@@ -17,7 +17,7 @@ export class RadniciService {
   }
 
   findAll() {
-    return this.radniciRepository.find();
+    return this.radniciRepository.find({ relations: ['radni_sati'] });
   }
 
   findOne(id: string) {
