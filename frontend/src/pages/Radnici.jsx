@@ -20,19 +20,17 @@ function Radnici() {
 
   useEffect(() => {
     radnici.length == 0 &&
-      fetch("http://localhost:4000/radnici")
-        .then((res) => res.json())
-        .then((resData) => {
-          resData.forEach((radnik) => {
-            radnik.radni_sati = reduceRadnikRadniSati(radnik);
-            radnici.push(radnik);
-          });
-          setData(radnici);
+      radniciService.getAll().then((resData) => {
+        resData.data.forEach((radnik) => {
+          radnik.radni_sati = reduceRadnikRadniSati(radnik);
+          radnici.push(radnik);
         });
+        setData(radnici);
+      });
   }, []);
   return (
     <div className="p-6 container mx-auto">
-      <div className="grid grid-cols-4 border-b font-semibold">
+      <div className="grid grid-cols-4 border-b font-semibold pl-2">
         <p>Ime</p>
         <p>Prezime</p>
         <p>Ukupno Radni sati</p>
@@ -43,7 +41,7 @@ function Radnici() {
           <Link
             to={`/radnici/${radnik.id}`}
             key={radnik.id}
-            className={`grid grid-cols-4 block cursor-pointer duration-300 hover:bg-slate-300 py-2 ${
+            className={`grid grid-cols-4 block cursor-pointer duration-300 hover:bg-slate-300 py-2 pl-2 ${
               index % 2 === 0 ? "" : "bg-slate-100"
             }`}
           >
