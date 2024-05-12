@@ -9,19 +9,20 @@ import { RadniSatiModule } from './radni_sati/radni_sati.module';
 import { RadniciModule } from './radnici/radnici.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(),
+  imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'password',
-      database: 'radnici_evidencija',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
-    }),
+        host: 'localhost',
+        port: 3306,
+        username: 'root',
+        password: '',
+        database: 'radnici_evidencija',
+        entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        synchronize: true,
+      }),
       inject: [ConfigService],
     }),
     UsersModule,

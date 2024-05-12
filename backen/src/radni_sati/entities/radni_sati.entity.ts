@@ -1,4 +1,11 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Radnici } from 'src/radnici/entities/radnici.entity';
 
 @Entity()
@@ -9,7 +16,7 @@ export class RadniSati {
   @Column()
   radni_sati: number;
 
-  @Column()
+  @Column({ type: 'date' })
   datum: string;
 
   @ManyToOne(() => Radnici, (radnik) => radnik.radni_sati)

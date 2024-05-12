@@ -25,6 +25,19 @@ export class RadniSatiController {
     return this.radniSatiService.create(radniSati, radnik);
   }
 
+  @Get('seed')
+  async seed() {
+    const radnik = await this.radniciService.findOne(
+      '91623bce-3512-480b-9fd4-69715de205b6',
+    );
+    return this.radniSatiService.seed(radnik);
+  }
+
+  @Post('raspon')
+  async findMany(@Body() { start, end, radnikId }) {
+    return this.radniSatiService.findMany(start, end, radnikId);
+  }
+
   @Get()
   findAll() {
     return this.radniSatiService.findAll();
