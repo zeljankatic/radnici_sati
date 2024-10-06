@@ -4,37 +4,25 @@ import './index.css';
 import App from './App';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Errorpage from './pages/Errorpage';
-import UnosRadnika from './pages/UnosRadnika';
-import Radnici from './pages/Radnici';
-import Homepages from './pages/Homepages';
+
 import Logingpage from './pages/Logingpage';
-import DetaljiRadnikapage from './pages/DetaljiRadnikapage';
+
+import RegistarPage from './pages/RegistarPage';
 
 const router = createBrowserRouter([{
   path:'/',
   element:<App/>,
   errorElement:<Errorpage/>,
   children:[
-    {
-     path:'/home',
-     element:<Homepages/>
-    },
-    {
-    path:'/unos_radnika',
-    element:<UnosRadnika/>
-  },
-  {
-    path:'/radnici',
-    element:<Radnici/>
-
-  },
+  
   {
     path:'/login',
     element:<Logingpage/>
   },
+ 
   {
-    path:'/radnik/:id',
-    element:<DetaljiRadnikapage/>
+    path:'/registar',
+    element:<RegistarPage/>
   }
 ]
 }])

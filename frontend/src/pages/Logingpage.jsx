@@ -7,11 +7,11 @@ function Logingpage() {
    
   const formik=useFormik({
     initialValues:{
-      ime:'',
+      email:'',
       password:''
     },
      validationSchema: Yup.object({
-      ime:Yup.string().required('Unesite ime !!'),
+      email:Yup.string().required('Unesite email !!'),
       password:Yup.string().required('Unesite password !!')
       
      }),
@@ -33,14 +33,14 @@ function Logingpage() {
       <form onSubmit={formik.handleSubmit} 
       className='w-[40%] mt-[50px] border-2 border-yellow-300 flex flex-col rounded-lg items-center mx-auto'>
         <div className='flex flex-col'>
-        <label className='text-[18px] my-[10px]'>Unesite ime :
-        <span className=' px-[10px] text-[15px] text-red-500'>{showError('ime')}</span></label>
+        <label className='text-[18px] my-[10px]'>Unesite email :
+        <span className=' px-[10px] text-[15px] text-red-500'>{showError('email')}</span></label>
         <input 
-        type='text' 
-        name='ime'
-        value = {formik.values.ime} 
+        type='email' 
+        name='email'
+        value = {formik.values.email} 
         onChange={formik.handleChange}
-        placeholder='Unesite ime:'
+        placeholder='Unesite email:'
         className='border border-blue-400 rounded-lg  placeholder:text-[16px] px-[14px]'></input>
               </div>
         <div className='flex flex-col'>     
