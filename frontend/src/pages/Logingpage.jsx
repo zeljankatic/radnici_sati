@@ -1,9 +1,8 @@
-import { useFormik } from 'formik'
 import React from 'react'
-import LoginService from '../services/logingService'
-import * as Yup from 'yup'
+import { LoginRegister } from '../components/LoginRegister'
 
 function Logingpage() {
+<<<<<<< HEAD
    
   const formik=useFormik({
     initialValues:{
@@ -58,6 +57,10 @@ function Logingpage() {
         
       </form>
     </div>
+=======
+  return (
+    <LoginRegister pathname="login"/>
+>>>>>>> 1320c96a4c55346fdff7cca4b1bcbc30acb592d7
   )
 }
 
